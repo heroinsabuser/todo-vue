@@ -18,6 +18,7 @@ const updateStorage = () => {
 };
 
 const addTodo = () => {
+  if (text.value.length === 0) return;
   todos.value.push({
     id: Math.random(),
     text: text.value,
@@ -61,6 +62,7 @@ onMounted(() => {
               placeholder="Добавить задачу"
               @keyup.enter="addTodo"
               maxlength="32"
+              minlength="1"
             />
             <img
               @click="addTodo"
